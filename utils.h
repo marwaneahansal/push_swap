@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/15 14:05:32 by mahansal         ###   ########.fr       */
+/*   Created: 2022/12/15 14:07:11 by mahansal          #+#    #+#             */
+/*   Updated: 2022/12/15 14:11:48 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#ifndef UTILS_H
 
-# define PUSH_SWAP_H
+# define UTILS_H
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "push_swap.h"
 
-typedef struct s_node
-{
-  int value;
-  struct s_node *next;
-  struct s_node *prev;
-} t_node;
+t_node  *lst_new(int value);
+void    lst_add_back(t_node **head, t_node *new);
+void    print_list(t_node *head);
 
-
-#endif
+# endif
