@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/15 14:12:22 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:15:22 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
     lst_add_back(&head, new);
     i++;
   }
+  print_list(head);
+  ss(&head, &head);
   print_list(head);
   return (0);
 }

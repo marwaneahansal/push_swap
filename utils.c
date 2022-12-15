@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/15 14:13:14 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:03:38 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void  print_list(t_node *head)
   {
     printf("%d | ", tmp->value);
     tmp = tmp->next;
+    if (!tmp)
+      printf("\n");
   }
 }

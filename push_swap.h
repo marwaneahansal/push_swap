@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/15 14:05:32 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:14:05 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,9 @@ typedef struct s_node
   struct s_node *prev;
 } t_node;
 
+
+void  sa(t_node **a);
+void  sb(t_node **b);
+void  ss(t_node **a, t_node **b);
 
 #endif
