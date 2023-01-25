@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:07:11 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 16:59:12 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:40:49 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 t_node  *lst_new(int value);
 void    lst_add_back(t_node **head, t_node *new);
+void    lst_add_front(t_node **head, t_node *new);
+t_node   *lst_last(t_node *head);
 int	    ft_atoi(const char *str);
 
 # endif

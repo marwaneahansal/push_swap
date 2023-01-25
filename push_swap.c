@@ -6,13 +6,11 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 17:16:52 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:51:05 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "utils.h"
-
 
 void  print_list(t_node *head)
 {
@@ -51,9 +49,7 @@ int main(int argc, char *argv[])
   }
   lst_add_back(&stack_b, lst_new(1));
   print_list(stack_a);
-  print_list(stack_b);
-  pb(&stack_a, &stack_b, 1);
+  rrr(&stack_a, &stack_a);
   print_list(stack_a);
-  print_list(stack_b);
   return (0);
 }

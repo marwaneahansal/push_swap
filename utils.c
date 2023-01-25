@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 16:59:04 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:43:13 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,21 @@ void  lst_add_back(t_node **head, t_node *new)
   while (last->next)
     last = last->next;
   last->next = new;
+}
+
+t_node  *lst_last(t_node *lst)
+{
+  while (lst)
+	{
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
+
+void	lst_add_front(t_node **lst, t_node *new)
+{
+	new->next = *lst;
+	*lst = new;
 }
