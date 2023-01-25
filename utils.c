@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/15 19:03:38 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:59:04 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_node *lst_new(int value)
     return (NULL);
   new->value = value;
   new->next = NULL;
-  new->prev = NULL;
   return (new);
 }
 
@@ -39,19 +38,4 @@ void  lst_add_back(t_node **head, t_node *new)
   while (last->next)
     last = last->next;
   last->next = new;
-  new->prev = last;
-}
-
-void  print_list(t_node *head)
-{
-  t_node *tmp;
-
-  tmp = head;
-  while (tmp)
-  {
-    printf("%d | ", tmp->value);
-    tmp = tmp->next;
-    if (!tmp)
-      printf("\n");
-  }
 }
