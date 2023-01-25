@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 17:49:50 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:02:11 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void  rr(t_node **a, t_node **b);
 void  rra(t_node **a, int write_op);
 void  rrb(t_node **b, int write_op);
 void  rrr(t_node **a, t_node **b);
+
+t_node *fill_stack(int argc, char **argv);
 
 #endif
