@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:02:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:16:15 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 11:22:04 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,20 @@ void  exit_error(char *str, char **numbers)
   if (numbers)
     free(numbers);
   exit(1);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	index;
+
+	index = 0;
+	while (s1[index] != '\0' || s2[index] != '\0')
+	{
+		if ((unsigned char) s1[index] > (unsigned char) s2[index])
+			return ((unsigned char) s1[index] - (unsigned char) s2[index]);
+		else if ((unsigned char) s1[index] < (unsigned char) s2[index])
+			return ((unsigned char) s1[index] - (unsigned char) s2[index]);
+		index++;
+	}
+	return (0);
 }
