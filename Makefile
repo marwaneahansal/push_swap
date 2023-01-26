@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 18:04:23 by mahansal          #+#    #+#              #
-#    Updated: 2023/01/25 18:15:21 by mahansal         ###   ########.fr        #
+#    Updated: 2023/01/26 11:10:41 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ CC		= cc
 
 NAME 	= push_swap
 
-SRCS 	= push_swap.c utils.c operations.c operations2.c init.c ft_atoi.c ft_split.c
+SRCS 	= push_swap.c operations.c operations2.c init.c \
+				check.c \
+				ft_atoi.c ft_split.c \
+				utils.c utils2.c \
 
 OBJS 	= $(SRCS:.c=.o)
 

@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 18:00:34 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:09:26 by mahansal         ###   ########.fr       */
+/*   Created: 2023/01/26 11:02:27 by mahansal          #+#    #+#             */
+/*   Updated: 2023/01/26 11:13:12 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-t_node *fill_stack(int argc, char **argv, char **numbers)
+int	ft_isdigit(int c)
 {
-  t_node *stack;
-  t_node *new;
-  int i;
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	return (0);
+}
 
-  stack = NULL;
-  i = 1;
-  if (numbers)
+void  ft_putstr_fd(char *str, int fd)
+{
+  while (*str)
   {
-    argc = count_numbers(numbers);
-    argv = numbers;
-    i = 0;
+    write(fd, str, 1);
+    str++;
   }
-  while (i < argc)
-  {
-    new = lst_new(ft_atoi(argv[i]));
-    lst_add_back(&stack, new);
-    i++;
-  }
-  return (stack);
+  
+}
+void  exit_error(char *str)
+{
+  ft_putstr_fd("Error\n", 2);
+  ft_putstr_fd(str, 2);
+  ft_putstr_fd("\n", 2);
+  exit(1);
 }

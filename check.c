@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:07:11 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:09:40 by mahansal         ###   ########.fr       */
+/*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
+/*   Updated: 2023/01/26 11:11:00 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-
-# define UTILS_H
-
 #include "push_swap.h"
 
-t_node  *lst_new(int value);
-void    lst_add_back(t_node **head, t_node *new);
-void    lst_add_front(t_node **head, t_node *new);
-t_node  *lst_last(t_node *head);
-int	    ft_atoi(const char *str);
-char	  **ft_split(char const *s, char c);
-void    ft_putstr_fd(char *s, int fd);
-void    exit_error(char *str);
-int     count_numbers(char **numbers);
-int	    ft_isdigit(int c);
+int check_numbers(int argc, char **argv, char **numbers)
+{
+  int i;
+  int j;
 
-# endif
+  i = 1;
+  if (numbers)
+  {
+    argc = count_numbers(numbers);
+    argv = numbers;
+    i = 0;
+  }
+  while (i < argc)
+  {
+    j = 0;
+    while (argv[i][j])
+    {
+      if (argv[i][j] == '-' || argv[i][j] == '+')
+        j++;
+      if (!ft_isdigit(argv[i][j]))
+        return (0);
+      j++;
+    }
+    i++;
+  }
+  return (1);
+}

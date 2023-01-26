@@ -6,12 +6,11 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 17:43:13 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 11:07:35 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-#include <stdio.h>
 
 t_node *lst_new(int value)
 {
@@ -40,19 +39,20 @@ void  lst_add_back(t_node **head, t_node *new)
   last->next = new;
 }
 
-t_node  *lst_last(t_node *lst)
-{
-  while (lst)
-	{
-		if (!lst->next)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
-
 void	lst_add_front(t_node **lst, t_node *new)
 {
+  if (!lst || !new)
+    return ;
 	new->next = *lst;
 	*lst = new;
+}
+
+int count_numbers(char **numbers)
+{
+  int i;
+
+  i = 0;
+  while (numbers[i])
+    i++;
+  return (i);
 }
