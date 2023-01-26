@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:18:55 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:39:07 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_node
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <limits.h>
 #include "utils.h"
 
 void  sa(t_node **a, int write_op);
@@ -39,6 +40,7 @@ void  rrr(t_node **a, t_node **b);
 
 int     check_numbers(int argc, char **argv, char **numbers);
 int     check_duplicates(int argc, char **argv, char **numbers);
+int     check_maxmin_numbers(int argc, char **argv, char **numbers);
 
 t_node  *fill_stack(int argc, char **argv, char **numbers);
 

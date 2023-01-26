@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:25:05 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:40:45 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,47 @@ int check_duplicates(int argc, char **argv, char **numbers)
         return (0);
       j++;
     }
+    i++;
+  }
+  return (1);
+}
+
+int is_maxmin_int(char *str)
+{
+  int i;
+  long long number;
+
+  i = 0;
+  number = 0;
+  if (str[i] == '-' || str[i] == '+')
+    i++;
+  while (str[i])
+  {
+    number = number * 10 + (str[i] - '0');
+    i++;
+  }
+  if (str[0] == '-')
+    number = -number;
+  if (number > INT_MAX || number < INT_MIN)
+    return (1);
+  return (0);
+}
+
+int check_maxmin_numbers(int argc, char **argv, char **numbers)
+{
+  int i;
+
+  i = 1;
+  if (numbers)
+  {
+    argc = count_numbers(numbers);
+    argv = numbers;
+    i = 0;
+  }
+  while (i < argc)
+  {
+    if (is_maxmin_int(argv[i]))
+      return (0);
     i++;
   }
   return (1);

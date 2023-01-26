@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:29:28 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:39:58 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ int main(int argc, char *argv[])
     if (numbers)
       free_dptr(numbers);
     exit_error("some arguments are duplicates");
+  }
+
+  if (!check_maxmin_numbers(argc, argv, numbers))
+  {
+    if (numbers)
+      free_dptr(numbers);
+    exit_error("some arguments bigger than max int or smaller than int min");
   }
   
   if (numbers)
