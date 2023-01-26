@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:23:28 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:29:28 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,28 @@ int main(int argc, char *argv[])
   numbers = NULL;
   stack_a = NULL;
   if (argc < 2)
-    exit_error("No arguments given", numbers);
+    exit_error("No arguments given");
   if (argc == 2)
     numbers = ft_split(argv[1], ' ');
+    
   if (!check_numbers(argc, argv, numbers))
-    exit_error("some arguments aren't integers", numbers);
+  {
+    if (numbers)
+      free_dptr(numbers);
+    exit_error("some arguments aren't integers");
+  }
+
   if (!check_duplicates(argc, argv, numbers))
-    exit_error("some arguments are duplicates", numbers);
+  {
+    if (numbers)
+      free_dptr(numbers);
+    exit_error("some arguments are duplicates");
+  }
+  
+  if (numbers)
+      free_dptr(numbers);
+      
   stack_a = fill_stack(argc, argv, numbers);
   print_list(stack_a);
-  free(numbers);
   return (0);
 }

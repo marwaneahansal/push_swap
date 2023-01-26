@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:02:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:22:04 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:16:35 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,25 @@ void  ft_putstr_fd(char *str, int fd)
   }
   
 }
-void  exit_error(char *str, char **numbers)
+void  exit_error(char *str)
 {
   ft_putstr_fd("Error\n", 2);
   ft_putstr_fd(str, 2);
   ft_putstr_fd("\n", 2);
-  if (numbers)
-    free(numbers);
   exit(1);
+}
+
+void	free_dptr(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)
