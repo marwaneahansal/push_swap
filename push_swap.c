@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 18:04:19 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:27:20 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void  start_sort(t_node **stack_a, t_node **stack_b)
     sort_three(stack_a);
   else if (len == 4)
     sort_four(stack_a, stack_b);
+  else if (len == 5)
+    sort_five(stack_a, stack_b);
 }
 
 int main(int argc, char *argv[])
@@ -54,11 +56,11 @@ int main(int argc, char *argv[])
     
   init(argc, argv, numbers, &stack_a);
 
-  print_list(stack_a);
+  // print_list(stack_a);
   
   start_sort(&stack_a, &stack_b);
 
-  print_list(stack_a);
+  // print_list(stack_a);
   if (numbers)
       free_dptr(numbers);
   free_stack(stack_a);

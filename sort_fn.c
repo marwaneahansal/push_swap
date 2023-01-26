@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:29:38 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 18:12:01 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:24:01 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void  sort_four(t_node **stack_a, t_node **stack_b)
   int   min_index;
 
   min_index = get_min_index(*stack_a);
-  printf("min value index: %d\n", min_index);
   if (min_index == 1)
     sa(stack_a, 1);
   else if (min_index == 2)
@@ -79,9 +78,32 @@ void  sort_four(t_node **stack_a, t_node **stack_b)
   else if (min_index == 3)
     rra(stack_a, 1);
   pb(stack_a, stack_b, 1);
-  print_list(*stack_a);
-  sort_three(stack_a);
-  print_list(*stack_a);
+  if (!check_is_sorted(*stack_a))
+    sort_three(stack_a);
   pa(stack_a, stack_b, 1);
-  (void) stack_b;
+}
+
+void  sort_five(t_node **stack_a, t_node **stack_b)
+{
+  int  min_index;
+
+  min_index = get_min_index(*stack_a);
+  if (min_index == 1)
+    sa(stack_a, 1);
+  else if (min_index == 2)
+  {
+    ra(stack_a, 1);
+    ra(stack_a, 1);
+  }
+  else if (min_index == 3)
+  {
+    rra(stack_a, 1);
+    rra(stack_a, 1);
+  }
+  else if (min_index == 4)
+    rra(stack_a, 1);
+  pb(stack_a, stack_b, 1);
+  if (!check_is_sorted(*stack_a))
+    sort_four(stack_a, stack_b);
+  pa(stack_a, stack_b, 1);
 }
