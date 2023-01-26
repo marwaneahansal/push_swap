@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 14:38:12 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:04:19 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void  print_list(t_node *head)
   printf("\n");
 }
 
-void  start_sort(t_node **stack_a)
+void  start_sort(t_node **stack_a, t_node **stack_b)
 {
   int   len;
 
@@ -34,15 +34,19 @@ void  start_sort(t_node **stack_a)
     sort_two(stack_a);
   else if (len == 3)
     sort_three(stack_a);
+  else if (len == 4)
+    sort_four(stack_a, stack_b);
 }
 
 int main(int argc, char *argv[])
 {
   t_node *stack_a;
+  t_node *stack_b;
   char   **numbers;
   
   numbers = NULL;
   stack_a = NULL;
+  stack_b = NULL;
   if (argc < 2)
     exit_error("No arguments given");
   if (argc == 2)
@@ -52,7 +56,7 @@ int main(int argc, char *argv[])
 
   print_list(stack_a);
   
-  start_sort(&stack_a);
+  start_sort(&stack_a, &stack_b);
 
   print_list(stack_a);
   if (numbers)
