@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:00:34 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 18:09:59 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 10:54:34 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,29 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int check_numbers(int argc, char **argv)
+int count_numbers(char **numbers)
+{
+  int i;
+
+  i = 0;
+  while (numbers[i])
+    i++;
+  return (i);
+}
+
+int check_numbers(int argc, char **argv, char **numbers)
 {
   int i;
   int j;
 
   i = 1;
+  if (numbers)
+  {
+    argc = count_numbers(numbers);
+    argv = numbers;
+    i = 0;
+  }
+  printf("argc = %d\n", argc);
   while (i < argc)
   {
     j = 0;
@@ -43,14 +60,20 @@ int check_numbers(int argc, char **argv)
   return (1);
 }
 
-t_node *fill_stack(int argc, char **argv)
+t_node *fill_stack(int argc, char **argv, char **numbers)
 {
   t_node *stack;
   t_node *new;
   int i;
 
-  i = 1;
   stack = NULL;
+  i = 1;
+  if (numbers)
+  {
+    argc = count_numbers(numbers);
+    argv = numbers;
+    i = 0;
+  }
   while (i < argc)
   {
     new = lst_new(ft_atoi(argv[i]));
