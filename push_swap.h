@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:39:07 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:55:02 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,12 @@ void  rrr(t_node **a, t_node **b);
 int     check_numbers(int argc, char **argv, char **numbers);
 int     check_duplicates(int argc, char **argv, char **numbers);
 int     check_maxmin_numbers(int argc, char **argv, char **numbers);
+int     check_is_sorted(t_node *stack);
 
 t_node  *fill_stack(int argc, char **argv, char **numbers);
+void    init(int argc, char **argv, char **numbers, t_node **stack_a);
+
+void  sort_two(t_node **stack);
+void  sort_three(t_node **stack);
 
 #endif

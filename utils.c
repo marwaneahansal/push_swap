@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:07:50 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:27:41 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_node *lst_new(int value)
   return (new);
 }
 
-void  lst_add_back(t_node **head, t_node *new)
+void  ft_lstadd_back(t_node **head, t_node *new)
 {
   t_node *last;
 
@@ -39,12 +39,25 @@ void  lst_add_back(t_node **head, t_node *new)
   last->next = new;
 }
 
-void	lst_add_front(t_node **lst, t_node *new)
+void	ft_lstadd_front(t_node **head, t_node *new)
 {
-  if (!lst || !new)
+  if (!head || !new)
     return ;
-	new->next = *lst;
-	*lst = new;
+	new->next = *head;
+	*head = new;
+}
+
+int	ft_lstsize(t_node *head)
+{
+	int		i;
+
+	i = 0;
+	while (head)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
 }
 
 void  free_stack(t_node *head)

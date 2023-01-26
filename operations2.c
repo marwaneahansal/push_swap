@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:22:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/25 17:51:18 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:25:13 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void  ra(t_node **a, int write_op)
   tmp = *a;
   *a = (*a)->next;
   tmp->next = NULL;
-  lst_add_back(a, tmp);
+  ft_lstadd_back(a, tmp);
   if (write_op)
     write(1, "ra\n", 3);
 }
@@ -35,7 +35,7 @@ void  rb(t_node **b, int write_op)
   tmp = *b;
   *b = (*b)->next;
   tmp->next = NULL;
-  lst_add_back(b, tmp);
+  ft_lstadd_back(b, tmp);
   if (write_op)
     write(1, "rb\n", 3);
 }
@@ -60,7 +60,7 @@ void  rra(t_node **a, int write_op)
 		tmp = tmp->next;
   tmp2 = tmp->next;
   tmp->next =  NULL;
-  lst_add_front(a, tmp2);
+  ft_lstadd_front(a, tmp2);
   if (write_op)
     write(1, "rra\n", 4);
 }
@@ -78,7 +78,7 @@ void  rrb(t_node **b, int write_op)
 		tmp = tmp->next;
   tmp2 = tmp->next;
   tmp->next =  NULL;
-  lst_add_front(b, tmp2);
+  ft_lstadd_front(b, tmp2);
   if (write_op)
     write(1, "rra\n", 4);
 }

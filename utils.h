@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:07:11 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:06:28 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:34:01 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 #include "push_swap.h"
 
 t_node  *lst_new(int value);
-void    lst_add_back(t_node **head, t_node *new);
-void    lst_add_front(t_node **head, t_node *new);
-t_node  *lst_last(t_node *head);
-int	    ft_atoi(const char *str);
+void    ft_lstadd_back(t_node **head, t_node *new);
+void    ft_lstadd_front(t_node **head, t_node *new);
+int     ft_lstsize(t_node *head);
+
 char	  **ft_split(char const *s, char c);
+int	    ft_atoi(const char *str);
+
 void    ft_putstr_fd(char *s, int fd);
 void    exit_error(char *str);
 int     count_numbers(char **numbers);

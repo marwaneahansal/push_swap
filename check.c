@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:40:45 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:10:50 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,20 @@ int check_maxmin_numbers(int argc, char **argv, char **numbers)
     if (is_maxmin_int(argv[i]))
       return (0);
     i++;
+  }
+  return (1);
+}
+
+int check_is_sorted(t_node *stack)
+{
+  t_node *tmp;
+
+  tmp = stack;
+  while (tmp->next)
+  {
+    if (tmp->value > tmp->next->value)
+      return (0);
+    tmp = tmp->next;
   }
   return (1);
 }

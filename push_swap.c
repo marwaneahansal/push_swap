@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:06:35 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:38:12 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@ void  print_list(t_node *head)
   printf("\n");
 }
 
+void  start_sort(t_node **stack_a)
+{
+  int   len;
+
+  len = ft_lstsize(*stack_a);
+  if (len == 2)
+    sort_two(stack_a);
+  else if (len == 3)
+    sort_three(stack_a);
+}
+
 int main(int argc, char *argv[])
 {
   t_node *stack_a;
@@ -37,31 +48,16 @@ int main(int argc, char *argv[])
   if (argc == 2)
     numbers = ft_split(argv[1], ' ');
     
-  if (!check_numbers(argc, argv, numbers))
-  {
-    if (numbers)
-      free_dptr(numbers);
-    exit_error("some arguments aren't integers");
-  }
+  init(argc, argv, numbers, &stack_a);
 
-  if (!check_duplicates(argc, argv, numbers))
-  {
-    if (numbers)
-      free_dptr(numbers);
-    exit_error("some arguments are duplicates");
-  }
-
-  if (!check_maxmin_numbers(argc, argv, numbers))
-  {
-    if (numbers)
-      free_dptr(numbers);
-    exit_error("some arguments bigger than max int or smaller than int min");
-  }
+  print_list(stack_a);
   
-  stack_a = fill_stack(argc, argv, numbers);
+  start_sort(&stack_a);
+
   print_list(stack_a);
   if (numbers)
       free_dptr(numbers);
   free_stack(stack_a);
+  
   return (0);
 }
