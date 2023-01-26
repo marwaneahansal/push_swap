@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:39:58 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:06:35 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int main(int argc, char *argv[])
     exit_error("some arguments bigger than max int or smaller than int min");
   }
   
-  if (numbers)
-      free_dptr(numbers);
-      
   stack_a = fill_stack(argc, argv, numbers);
   print_list(stack_a);
+  if (numbers)
+      free_dptr(numbers);
+  free_stack(stack_a);
   return (0);
 }

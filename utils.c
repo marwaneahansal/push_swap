@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 11:07:35 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:07:50 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,16 @@ void	lst_add_front(t_node **lst, t_node *new)
 	*lst = new;
 }
 
-int count_numbers(char **numbers)
+void  free_stack(t_node *head)
 {
-  int i;
+  t_node *tmp;
+  t_node *next;
 
-  i = 0;
-  while (numbers[i])
-    i++;
-  return (i);
+  tmp = head;
+  while (tmp)
+  {
+    next = tmp->next;
+    free(tmp);
+    tmp = next;
+  }
 }

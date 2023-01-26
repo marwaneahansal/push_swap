@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:02:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:16:35 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:02:34 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,14 @@ int	ft_strcmp(const char *s1, const char *s2)
 		index++;
 	}
 	return (0);
+}
+
+int count_numbers(char **numbers)
+{
+  int i;
+
+  i = 0;
+  while (numbers[i])
+    i++;
+  return (i);
 }

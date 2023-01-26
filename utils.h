@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:07:11 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:22:32 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:06:28 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int     count_numbers(char **numbers);
 int	    ft_isdigit(int c);
 int	    ft_strcmp(const char *s1, const char *s2);
 void	  free_dptr(char **ptr);
+void    free_stack(t_node *head);
 # endif

@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:00:34 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 12:19:10 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:08:52 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_node *fill_stack(int argc, char **argv, char **numbers)
 {
   t_node *stack;
-  t_node *new;
   int i;
 
   stack = NULL;
@@ -28,10 +27,7 @@ t_node *fill_stack(int argc, char **argv, char **numbers)
   }
   while (i < argc)
   {
-    new = lst_new(ft_atoi(argv[i]));
-    lst_add_back(&stack, new);
-    free(new);
-    new = NULL;
+    lst_add_back(&stack, lst_new(ft_atoi(argv[i])));
     i++;
   }
   return (stack);
