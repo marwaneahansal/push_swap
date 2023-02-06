@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 18:47:47 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:13:10 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 typedef struct s_node
 {
   int value;
+  int index;
   struct s_node *next;
 } t_node;
 
@@ -44,14 +45,22 @@ int     check_maxmin_numbers(int argc, char **argv, char **numbers);
 int     check_is_sorted(t_node *stack);
 
 t_node  *fill_stack(int argc, char **argv, char **numbers);
+void    assign_indexs(t_node *stack_a);
 void    init(int argc, char **argv, char **numbers, t_node **stack_a);
 
 void  start_sort(t_node **stack_a, t_node **stack_b);
 
-void  sort_two(t_node **stack);
-void  sort_three(t_node **stack);
+int   get_min_index(t_node *stack);
+int   get_max_index(t_node *stack);
+void  push_a_b(t_node **stack_a, t_node **stack_b);
+void  push_elem(t_node **stack_a, t_node **stack_b, int elem);
+int   get_curr_position(t_node *stack_b, int index);
+
+void  sort_two(t_node **stack_a);
+void  sort_three(t_node **stack_a);
 void  sort_four(t_node **stack_a, t_node **stack_b);
 void  sort_five(t_node **stack_a, t_node **stack_b);
+void  sort_big(t_node **stack_a, t_node **stack_b); 
 
 
 void  print_list(t_node *head);

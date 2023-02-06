@@ -6,61 +6,29 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:29:38 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 19:24:01 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:45:20 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_min_index(t_node *stack)
+void  sort_two(t_node **stack_a)
 {
-  int   min;
-  int   i;
-  int   j;
-  t_node *tmp;
-
-  tmp = stack;
-  min = tmp->value;
-  i = 0;
-  j = 0;
-  while (tmp)
-  {
-    if (tmp->value < min)
-    {
-      min = tmp->value;
-      j = i;
-    }
-    i++;
-    tmp = tmp->next;
-  }
-  return (j);
+  if ((*stack_a)->value > (*stack_a)->next->value)
+    sa(stack_a, 1);
 }
 
-void  sort_two(t_node **stack)
+void  sort_three(t_node **stack_a)
 {
-  if ((*stack)->value > (*stack)->next->value)
-    sa(stack, 1);
-}
+  int   max_index;
 
-void  sort_three(t_node **stack)
-{
-  if ((*stack)->value < (*stack)->next->value 
-      && (*stack)->value < (*stack)->next->next->value)
-  {
-    rra(stack, 1);
-    sa(stack, 1);
-  }
-  else if ((*stack)->value > (*stack)->next->value
-          && (*stack)->value > (*stack)->next->next->value)
-  {
-    ra(stack, 1);
-    if ((*stack)->value > (*stack)->next->value)
-      sa(stack, 1);
-  }
-  else if ((*stack)->value > (*stack)->next->value)
-    sa(stack, 1);
-  else if ((*stack)->value > (*stack)->next->next->value)
-    rra(stack, 1);
+  max_index = get_max_index(*stack_a);
+  if (max_index == 0)
+    ra(stack_a, 1);
+  else if (max_index == 1)
+    rra(stack_a, 1);
+  if ((*stack_a)->value > (*stack_a)->next->value)
+    sa(stack_a, 1);
 }
 
 void  sort_four(t_node **stack_a, t_node **stack_b)
@@ -106,4 +74,33 @@ void  sort_five(t_node **stack_a, t_node **stack_b)
   if (!check_is_sorted(*stack_a))
     sort_four(stack_a, stack_b);
   pa(stack_a, stack_b, 1);
+}
+
+void  sort_big(t_node **stack_a, t_node **stack_b)
+{
+  push_a_b(stack_a, stack_b);
+
+  int size = ft_lstsize(*stack_b);
+  int index = size;
+  int first_elem = 0;
+  int second_elem = 0;
+
+  while (index > 0)
+  {
+    index--;
+    first_elem = get_curr_position(*stack_b, index);
+    second_elem = get_curr_position(*stack_b, index - 1);
+    if (index == 0 || first_elem < second_elem)
+    {
+      push_elem(stack_a, stack_b, first_elem);
+    }
+    else
+    {
+      push_elem(stack_a, stack_b, second_elem);
+      first_elem = get_curr_position(*stack_b, index);
+      index--;
+      push_elem(stack_a, stack_b, first_elem);
+      sa(stack_a, 1);
+    }
+  }
 }

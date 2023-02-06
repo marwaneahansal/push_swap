@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:22:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:25:13 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:48:41 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void  rrb(t_node **b, int write_op)
   tmp->next =  NULL;
   ft_lstadd_front(b, tmp2);
   if (write_op)
-    write(1, "rra\n", 4);
+    write(1, "rrb\n", 4);
 }
 
 void  rrr(t_node **a, t_node **b)

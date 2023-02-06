@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 19:27:20 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:13:42 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void  print_list(t_node *head)
   while (tmp)
   {
     printf("%d | ", tmp->value);
+    tmp = tmp->next;
+  }
+  printf("\n");
+  tmp = head;
+  while (tmp)
+  {
+    printf("%d | ", tmp->index);
     tmp = tmp->next;
   }
   printf("\n");
@@ -38,10 +45,15 @@ void  start_sort(t_node **stack_a, t_node **stack_b)
     sort_four(stack_a, stack_b);
   else if (len == 5)
     sort_five(stack_a, stack_b);
+  else
+    sort_big(stack_a, stack_b);
 }
 
 int main(int argc, char *argv[])
 {
+  //! handle case: +0 0000 0 -0
+  //! handle case: +20 20
+  //! handle case: when no arguments given give the prompt back
   t_node *stack_a;
   t_node *stack_b;
   char   **numbers;
@@ -50,7 +62,7 @@ int main(int argc, char *argv[])
   stack_a = NULL;
   stack_b = NULL;
   if (argc < 2)
-    exit_error("No arguments given");
+    exit_error();
   if (argc == 2)
     numbers = ft_split(argv[1], ' ');
     

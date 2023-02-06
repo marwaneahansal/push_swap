@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:02:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:02:34 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:57:59 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ void  ft_putstr_fd(char *str, int fd)
   }
   
 }
-void  exit_error(char *str)
+void  exit_error(void)
 {
   ft_putstr_fd("Error\n", 2);
-  ft_putstr_fd(str, 2);
-  ft_putstr_fd("\n", 2);
   exit(1);
 }
 

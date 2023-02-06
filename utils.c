@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:52:51 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:27:41 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/28 14:35:47 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_node *lst_new(int value)
   if (!new)
     return (NULL);
   new->value = value;
+  new->index = 0;
   new->next = NULL;
   return (new);
 }
