@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:58:14 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/06 16:42:51 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:02:13 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void  push_a_b(t_node **stack_a, t_node **stack_b)
   size = ft_lstsize(*stack_a);
   chunk_size = size / 5;
   chunk_end = chunk_size;
+  int half = chunk_size / 2;
   while (ft_lstsize(*stack_a))
   {
     i = 0;
@@ -77,7 +78,7 @@ void  push_a_b(t_node **stack_a, t_node **stack_b)
     {
       if ((*stack_a)->index <= chunk_end)
       {
-        if ((*stack_a)->index <= chunk_end / 2)
+        if ((*stack_a)->index <= chunk_end - half)
         {
           pb(stack_a, stack_b, 1);
           rb(stack_b, 1);
@@ -112,7 +113,7 @@ int get_curr_position(t_node *stack_b, int index)
 
 void  push_elem(t_node **stack_a, t_node **stack_b, int elem)
 {
-  if (elem <= ft_lstsize(*stack_b) / 2)
+  if (elem < ft_lstsize(*stack_b) / 2)
   {
     while (elem-- > 0)
       rb(stack_b, 1);
