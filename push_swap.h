@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/06 16:13:10 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:18:21 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void    assign_indexs(t_node *stack_a);
 void    init(int argc, char **argv, char **numbers, t_node **stack_a);
 
 void  start_sort(t_node **stack_a, t_node **stack_b);
+
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s1);
 
 int   get_min_index(t_node *stack);
 int   get_max_index(t_node *stack);

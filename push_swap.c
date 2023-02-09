@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/03 19:13:42 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:25:12 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,38 @@ void  start_sort(t_node **stack_a, t_node **stack_b)
     sort_big(stack_a, stack_b);
 }
 
+char  *join_argv(int argc, char **argv)
+{
+  int i;
+  char  *joined_argv;
+
+  i = 1;
+  joined_argv = NULL;
+  while (i < argc)
+  {
+    joined_argv = ft_strjoin(joined_argv, argv[i]);
+    joined_argv = ft_strjoin(joined_argv, " ");
+    i++;
+  }
+  return (joined_argv);
+}
+
 int main(int argc, char *argv[])
 {
   //! handle case: +0 0000 0 -0
   //! handle case: +20 20
-  //! handle case: when no arguments given give the prompt back
   t_node *stack_a;
   t_node *stack_b;
   char   **numbers;
+  char  *joined_argv;
   
   numbers = NULL;
   stack_a = NULL;
   stack_b = NULL;
   if (argc < 2)
     exit_error();
-  if (argc == 2)
-    numbers = ft_split(argv[1], ' ');
+  joined_argv = join_argv(argc, argv);
+  numbers = ft_split(joined_argv, ' ');
     
   init(argc, argv, numbers, &stack_a);
 
