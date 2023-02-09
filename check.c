@@ -6,32 +6,28 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/26 13:10:50 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:11:56 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_numbers(int argc, char **argv, char **numbers)
+int check_numbers(char **numbers)
 {
   int i;
   int j;
+  int nbr_count;
 
-  i = 1;
-  if (numbers)
-  {
-    argc = count_numbers(numbers);
-    argv = numbers;
-    i = 0;
-  }
-  while (i < argc)
+  i = 0;
+  nbr_count = count_numbers(numbers);
+  while (i < nbr_count)
   {
     j = 0;
-    while (argv[i][j])
+    while (numbers[i][j])
     {
-      if (argv[i][j] == '-' || argv[i][j] == '+')
+      if (numbers[i][j] == '-' || numbers[i][j] == '+')
         j++;
-      if (!ft_isdigit(argv[i][j]))
+      if (!ft_isdigit(numbers[i][j]))
         return (0);
       j++;
     }
@@ -40,28 +36,22 @@ int check_numbers(int argc, char **argv, char **numbers)
   return (1);
 }
 
-int check_duplicates(int argc, char **argv, char **numbers)
+int check_duplicates(t_node *stack_a)
 {
-  int i;
-  int j;
+  t_node  *tmp;
+  t_node  *tmp2;
 
-  i = 1;
-  if (numbers)
+  tmp = stack_a;
+  while (tmp)
   {
-    argc = count_numbers(numbers);
-    argv = numbers;
-    i = 0;
-  }
-  while (i < argc)
-  {
-    j = i + 1;
-    while (j < argc)
+    tmp2 = tmp->next;
+    while (tmp2)
     {
-      if (ft_strcmp(argv[i], argv[j]) == 0)
+      if (tmp->value == tmp2->value)
         return (0);
-      j++;
+      tmp2 = tmp2->next;
     }
-    i++;
+    tmp = tmp->next;
   }
   return (1);
 }
@@ -87,20 +77,16 @@ int is_maxmin_int(char *str)
   return (0);
 }
 
-int check_maxmin_numbers(int argc, char **argv, char **numbers)
+int check_maxmin_numbers(char **numbers)
 {
   int i;
+  int nbr_count;
 
-  i = 1;
-  if (numbers)
+  i = 0;
+  nbr_count = count_numbers(numbers);
+  while (i < nbr_count)
   {
-    argc = count_numbers(numbers);
-    argv = numbers;
-    i = 0;
-  }
-  while (i < argc)
-  {
-    if (is_maxmin_int(argv[i]))
+    if (is_maxmin_int(numbers[i]))
       return (0);
     i++;
   }

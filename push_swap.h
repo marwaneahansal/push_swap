@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/09 23:18:21 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:08:37 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void  rra(t_node **a, int write_op);
 void  rrb(t_node **b, int write_op);
 void  rrr(t_node **a, t_node **b);
 
-int     check_numbers(int argc, char **argv, char **numbers);
-int     check_duplicates(int argc, char **argv, char **numbers);
-int     check_maxmin_numbers(int argc, char **argv, char **numbers);
+int     check_numbers(char **numbers);
+int     check_duplicates(t_node *stack_a);
+int     check_maxmin_numbers(char **numbers);
 int     check_is_sorted(t_node *stack);
 
-t_node  *fill_stack(int argc, char **argv, char **numbers);
+t_node  *fill_stack(char **numbers);
 void    assign_indexs(t_node *stack_a);
-void    init(int argc, char **argv, char **numbers, t_node **stack_a);
+void    init(char **numbers, t_node **stack_a);
 
 void  start_sort(t_node **stack_a, t_node **stack_b);
 

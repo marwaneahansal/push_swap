@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/09 23:25:12 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:12:15 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ char  *join_argv(int argc, char **argv)
 
 int main(int argc, char *argv[])
 {
-  //! handle case: +0 0000 0 -0
-  //! handle case: +20 20
   t_node *stack_a;
   t_node *stack_b;
   char   **numbers;
@@ -82,13 +80,13 @@ int main(int argc, char *argv[])
   joined_argv = join_argv(argc, argv);
   numbers = ft_split(joined_argv, ' ');
     
-  init(argc, argv, numbers, &stack_a);
+  init(numbers, &stack_a);
 
   // print_list(stack_a);
   
   start_sort(&stack_a, &stack_b);
 
-  // print_list(stack_a);
+  print_list(stack_a);
   if (numbers)
       free_dptr(numbers);
   free_stack(stack_a);
