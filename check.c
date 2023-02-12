@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/10 00:32:23 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:45:09 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,13 @@ int is_maxmin_int(char *str)
   while (str[i])
   {
     number = number * 10 + (str[i] - '0');
-    if ((str[0] == '-' && number * -1 < INT_MIN) || number > INT_MAX)
-      return (1);
+    if (str[0] == '-')
+    {
+      if (number * -1 < INT_MIN)
+        return (1);
+    } else
+      if (number > INT_MAX)
+        return (1);
     i++;
   }
   if (str[0] == '-')

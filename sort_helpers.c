@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:58:14 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/06 17:02:13 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:10:32 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int get_max_index(t_node *stack)
   return (j);
 }
 
-void  push_a_b(t_node **stack_a, t_node **stack_b)
+void  push_a_b(t_node **stack_a, t_node **stack_b, int division)
 {
   int size;
   int chunk_size;
@@ -68,7 +68,7 @@ void  push_a_b(t_node **stack_a, t_node **stack_b)
   int i;
 
   size = ft_lstsize(*stack_a);
-  chunk_size = size / 5;
+  chunk_size = size / division;
   chunk_end = chunk_size;
   int half = chunk_size / 2;
   while (ft_lstsize(*stack_a))
