@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 18:04:23 by mahansal          #+#    #+#              #
-#    Updated: 2023/02/12 22:13:46 by mahansal         ###   ########.fr        #
+#    Updated: 2023/02/13 22:41:05 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,13 @@ SRCS 	= push_swap.c operations.c operations2.c init.c \
 				ft_atoi.c ft_split.c ft_strjoin.c \
 				utils.c utils2.c \
 
-BSRCS 	= checker.c
+BSRCS 	= bonus/checker.c bonus/get_next_line.c \
+				bonus/get_next_line_utils.c \
+				bonus/operations_bonus.c bonus/operations2_bonus.c \
+				bonus/init_bonus.c bonus/utils_bonus.c bonus/utils2_bonus.c \
+				bonus/check_bonus.c bonus/ft_atoi.c bonus/ft_split.c \
+				bonus/ft_strjoin.c 
+				
 
 OBJS 	= $(SRCS:.c=.o)
 
@@ -40,8 +46,10 @@ bonus: $(BOBJS)
 	
 clean:
 	rm -f $(OBJS)
+	rm -f $(BOBJS)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BNAME)
 
 re: fclean all

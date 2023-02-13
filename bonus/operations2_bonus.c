@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations2.c                                      :+:      :+:    :+:   */
+/*   operations2_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:22:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/13 08:25:18 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:36:01 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void  ra(t_node **a, int write_op)
+void  ra(t_node **a)
 {
   t_node *tmp;
 
@@ -22,11 +22,9 @@ void  ra(t_node **a, int write_op)
   *a = (*a)->next;
   tmp->next = NULL;
   ft_lstadd_back(a, tmp);
-  if (write_op)
-    write(1, "ra\n", 3);
 }
 
-void  rb(t_node **b, int write_op)
+void  rb(t_node **b)
 {
   t_node *tmp;
 
@@ -36,19 +34,15 @@ void  rb(t_node **b, int write_op)
   *b = (*b)->next;
   tmp->next = NULL;
   ft_lstadd_back(b, tmp);
-  if (write_op)
-    write(1, "rb\n", 3);
 }
 
-void  rr(t_node **a, t_node **b, int write_op)
+void  rr(t_node **a, t_node **b)
 {
-  ra(a, 0);
-  rb(b, 0);
-  if (write_op)
-    write(1, "rr\n", 3);
+  ra(a);
+  rb(b);
 }
 
-void  rra(t_node **a, int write_op)
+void  rra(t_node **a)
 {
   t_node *tmp;
   t_node *tmp2;
@@ -56,17 +50,14 @@ void  rra(t_node **a, int write_op)
   if (!*a || !(*a)->next)
     return ;
   tmp = *a;
-  // get before the last node
   while (tmp->next->next)
 		tmp = tmp->next;
   tmp2 = tmp->next;
   tmp->next =  NULL;
   ft_lstadd_front(a, tmp2);
-  if (write_op)
-    write(1, "rra\n", 4);
 }
 
-void  rrb(t_node **b, int write_op)
+void  rrb(t_node **b)
 {
   t_node *tmp;
   t_node *tmp2;
@@ -74,20 +65,15 @@ void  rrb(t_node **b, int write_op)
   if (!*b || !(*b)->next)
     return ;
   tmp = *b;
-  // get before the last node
   while (tmp->next->next)
 		tmp = tmp->next;
   tmp2 = tmp->next;
   tmp->next =  NULL;
   ft_lstadd_front(b, tmp2);
-  if (write_op)
-    write(1, "rrb\n", 4);
 }
 
-void  rrr(t_node **a, t_node **b, int write_op)
+void  rrr(t_node **a, t_node **b)
 {
-  rra(a, 0);
-  rrb(b, 0);
-  if (write_op)
-    write(1, "rrr\n", 4);
+  rra(a);
+  rrb(b);
 }

@@ -6,11 +6,11 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:58:19 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/13 07:59:13 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:31:37 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static char	*get_word(char const *s, char c)
 {

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 20:41:37 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/12 04:16:17 by mahansal         ###   ########.fr       */
+/*   Created: 2023/02/13 07:54:00 by mahansal          #+#    #+#             */
+/*   Updated: 2023/02/13 22:42:59 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdio.h"
-#include "unistd.h"
+#include "get_next_line.h"
 
-int main(int argc, char *argv[])
+void	clear_rest(char *rest)
 {
-	(void) argc;
-	(void) argv;
-	char buffer[10];
-	read(0, buffer, 10);
-	printf("buffer: %s\n", buffer);
+	if (rest)
+		rest[0] = '\0';
 }

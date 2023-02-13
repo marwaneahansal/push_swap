@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 18:59:22 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/13 22:56:26 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:30:06 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void  sa(t_node **a, int write_op)
+void  sa(t_node **a)
 {
   t_node *tmp;
   t_node *tmp2;
@@ -24,11 +24,9 @@ void  sa(t_node **a, int write_op)
   tmp->next = tmp2->next;
   tmp2->next = tmp;
   *a = tmp2;
-  if (write_op)
-    write(1, "sa\n", 3);
 }
 
-void  sb(t_node **b, int write_op)
+void  sb(t_node **b)
 {
   t_node *tmp;
   t_node *tmp2;
@@ -40,19 +38,15 @@ void  sb(t_node **b, int write_op)
   tmp->next = tmp2->next;
   tmp2->next = tmp;
   *b = tmp2;
-  if (write_op)
-    write(1, "sb\n", 3);
 }
 
-void  ss(t_node **a, t_node **b, int write_op)
+void  ss(t_node **a, t_node **b)
 {
-  sa(a, 0);
-  sb(b, 0);
-  if (write_op)
-    write(1, "ss\n", 3);
+  sa(a);
+  sb(b);
 }
 
-void  pa(t_node **a, t_node **b, int write_op)
+void  pa(t_node **a, t_node **b)
 {
   t_node  *tmp;
 
@@ -62,11 +56,9 @@ void  pa(t_node **a, t_node **b, int write_op)
   (*b)->next = *a;
   *a = *b;
   *b = tmp;
-  if (write_op)
-    write(1, "pa\n", 3);
 }
 
-void  pb(t_node **a, t_node **b, int write_op)
+void  pb(t_node **a, t_node **b)
 {
   t_node  *tmp;
 
@@ -76,6 +68,4 @@ void  pb(t_node **a, t_node **b, int write_op)
   (*a)->next = *b;
   *b = *a;
   *a = tmp;
-  if (write_op)
-    write(1, "pb\n", 3);
 }

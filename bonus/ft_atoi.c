@@ -6,11 +6,11 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 04:40:13 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/13 07:59:13 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:31:31 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	is_whitespace(char c)
 {
