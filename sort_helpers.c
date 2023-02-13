@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:58:14 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/11 20:10:32 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 04:38:59 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,67 +60,84 @@ int get_max_index(t_node *stack)
   return (j);
 }
 
-void  push_a_b(t_node **stack_a, t_node **stack_b, int division)
+void  push_a_b(t_node **stack_a, t_node **stack_b, int *tab, int division)
 {
-  int size;
-  int chunk_size;
-  int chunk_end;
-  int i;
+  int     i;
 
-  size = ft_lstsize(*stack_a);
-  chunk_size = size / division;
-  chunk_end = chunk_size;
-  int half = chunk_size / 2;
-  while (ft_lstsize(*stack_a))
+  i = 0;
+  while (*stack_a)
   {
-    i = 0;
-    while (ft_lstsize(*stack_a) && i < chunk_size)
+    if ((*stack_a)->value <= tab[i])
     {
-      if ((*stack_a)->index <= chunk_end)
-      {
-        if ((*stack_a)->index <= chunk_end - half)
-        {
-          pb(stack_a, stack_b, 1);
-          rb(stack_b, 1);
-        }
-        else
-          pb(stack_a, stack_b, 1);
-        i++;
-      }
-      else
-        ra(stack_a, 1);
+      pb(stack_a, stack_b, 1);
+      rb(stack_b, 1);
+      i++;
     }
-    chunk_end += chunk_size;
+    else if ((*stack_a)->value > tab[i] && (*stack_a)->value <= tab[division + i])
+    {
+      pb(stack_a, stack_b, 1);
+      i++;
+    }
+    else
+      ra(stack_a, 1);
   }
 }
 
-int get_curr_position(t_node *stack_b, int index)
+void  fill_tab(int **tab, t_node *stack_a)
 {
-  t_node *tmp;
   int i;
 
   i = 0;
-  tmp = stack_b;
-  while (tmp)
+  while (stack_a)
   {
-    if (tmp->index == index)
-      return (i);
-    tmp = tmp->next;
+    (*tab)[i] = stack_a->value;
+    stack_a = stack_a->next;
     i++;
-  }
-  return (-1);
+  } 
 }
 
-void  push_elem(t_node **stack_a, t_node **stack_b, int elem)
+int *sort_tab(t_node *stack_a, int size)
 {
-  if (elem < ft_lstsize(*stack_b) / 2)
+  int *tab;
+  int i;
+  int j;
+  int tmp;
+  
+  i = 0;
+  j = 0;
+  tab = malloc(size * sizeof(int));
+  fill_tab(&tab, stack_a);
+  while (i < size)
   {
-    while (elem-- > 0)
-      rb(stack_b, 1);
+    j = i + 1;
+    while (j < size)
+    {
+      if (tab[i] > tab[j])
+      {
+        tmp = tab[i];
+        tab[i] = tab[j];
+        tab[j] = tmp;
+      }
+      j++;
+    }
+    i++;
   }
-  else
+  return (tab);
+}
+
+void  push_back(t_node **stack_a, t_node **stack_b, int size)
+{
+  int i;
+
+  i = 0;
+  while (1)
   {
-    while (elem++ < ft_lstsize(*stack_b))
+    i = get_max_index(*stack_b);
+    if (i == 0)
+      break ;
+    else if (i <= size / 2)
+      rb(stack_b, 1);
+    else
       rrb(stack_b, 1);
   }
   pa(stack_a, stack_b, 1);

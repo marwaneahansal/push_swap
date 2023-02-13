@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/11 02:45:09 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:34:06 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int check_numbers(char **numbers)
   while (i < nbr_count)
   {
     j = 0;
+    if (numbers[i][j] == '-' || numbers[i][j] == '+')
+      j++;
     while (numbers[i][j])
     {
-      if (numbers[i][j] == '-' || numbers[i][j] == '+')
-        j++;
       if (!ft_isdigit(numbers[i][j]))
         return (0);
       j++;

@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:00:34 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/10 00:08:14 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 04:40:44 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,6 @@ t_node *fill_stack(char **numbers)
   return (stack);
 }
 
-void  assign_indexs(t_node *stack_a)
-{
-  t_node *tmp;
-  t_node  *high;
-  int     value;
-  int     size;
-
-  size = ft_lstsize(stack_a);
-  while (--size > 0)
-  {
-    tmp = stack_a; 
-    value = INT_MIN;
-    high = NULL;
-    while (tmp)
-    {
-      if (tmp->value > value && tmp->index == 0)
-      {
-        value = tmp->value;
-        high = tmp;
-        tmp = stack_a;
-      }
-      else
-        tmp = tmp->next;
-    }
-    if (high)
-      high->index = size;
-  }
-}
-
 void  init(char **numbers, t_node **stack_a)
 {
   if (!check_numbers(numbers) ||
@@ -75,7 +46,6 @@ void  init(char **numbers, t_node **stack_a)
       free_dptr(numbers);
     exit_error();
   }
-  assign_indexs(*stack_a);
   if (check_is_sorted(*stack_a))
   {
     if (numbers)

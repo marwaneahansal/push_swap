@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:46 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/11 20:11:43 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 04:46:41 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 typedef struct s_node
 {
   int value;
-  int index;
   struct s_node *next;
 } t_node;
 
@@ -45,7 +44,6 @@ int     check_maxmin_numbers(char **numbers);
 int     check_is_sorted(t_node *stack);
 
 t_node  *fill_stack(char **numbers);
-void    assign_indexs(t_node *stack_a);
 void    init(char **numbers, t_node **stack_a);
 
 void  start_sort(t_node **stack_a, t_node **stack_b);
@@ -55,17 +53,15 @@ char	*ft_strdup(char *s1);
 
 int   get_min_index(t_node *stack);
 int   get_max_index(t_node *stack);
-void  push_a_b(t_node **stack_a, t_node **stack_b, int division);
-void  push_elem(t_node **stack_a, t_node **stack_b, int elem);
-int   get_curr_position(t_node *stack_b, int index);
+void  push_a_b(t_node **stack_a, t_node **stack_b, int *tab, int division);
+void  fill_tab(int **tab, t_node *stack_a);
+int   *sort_tab(t_node *stack_a, int size);
+void  push_back(t_node **stack_a, t_node **stack_b, int size);
 
 void  sort_two(t_node **stack_a);
 void  sort_three(t_node **stack_a);
 void  sort_four(t_node **stack_a, t_node **stack_b);
 void  sort_five(t_node **stack_a, t_node **stack_b);
 void  sort_big(t_node **stack_a, t_node **stack_b, int division); 
-
-
-void  print_list(t_node *head);
 
 #endif

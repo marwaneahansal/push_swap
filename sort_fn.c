@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:29:38 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/11 20:18:33 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 04:38:44 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,16 @@ void  sort_five(t_node **stack_a, t_node **stack_b)
 
 void  sort_big(t_node **stack_a, t_node **stack_b, int division)
 {
-  push_a_b(stack_a, stack_b, division);
+  int size;
+  int *tab;
+  int i;
+  t_node  *tmp_a;
 
-  int size = ft_lstsize(*stack_b);
-  int index = size;
-  int first_elem = 0;
-  int second_elem = 0;
-
-  while (index > 0)
-  {
-    index--;
-    first_elem = get_curr_position(*stack_b, index);
-    second_elem = get_curr_position(*stack_b, index - 1);
-    if (index == 0 || first_elem < second_elem)
-      push_elem(stack_a, stack_b, first_elem);
-    else
-    {
-      push_elem(stack_a, stack_b, second_elem);
-      first_elem = get_curr_position(*stack_b, index);
-      index--;
-      push_elem(stack_a, stack_b, first_elem);
-      sa(stack_a, 1);
-    }
-  }
+  i = 0;
+  tmp_a = *stack_a;
+  size = ft_lstsize(*stack_a);
+  tab = sort_tab(*stack_a, size);
+  push_a_b(stack_a, stack_b, tab, division);
+  while (*stack_b)
+    push_back(stack_a, stack_b, ft_lstsize(*stack_b));
 }

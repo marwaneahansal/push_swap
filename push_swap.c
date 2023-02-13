@@ -6,49 +6,31 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/12 04:20:58 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/13 04:42:33 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void  print_list(t_node *head)
-{
-	t_node *tmp;
-
-	tmp = head;
-	while (tmp)
-	{
-		printf("%d | ", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("\n");
-	tmp = head;
-	while (tmp)
-	{
-		printf("%d | ", tmp->index);
-		tmp = tmp->next;
-	}
-	printf("\n");
-}
-
 void  start_sort(t_node **stack_a, t_node **stack_b)
 {
-	int   len;
+	int   size;
 
-	len = ft_lstsize(*stack_a);
-	if (len == 2)
+	size = ft_lstsize(*stack_a);
+	if (size == 2)
 		sort_two(stack_a);
-	else if (len == 3)
+	else if (size == 3)
 		sort_three(stack_a);
-	else if (len == 4)
+	else if (size == 4)
 		sort_four(stack_a, stack_b);
-	else if (len == 5)
+	else if (size == 5)
 		sort_five(stack_a, stack_b);
-	else if (len <= 100)
-		sort_big(stack_a, stack_b, 5);
+	else if (size <= 20)
+		sort_big(stack_a, stack_b, 3);
+	else if (size <= 100)
+		sort_big(stack_a, stack_b, 13);
 	else
-		sort_big(stack_a, stack_b, 10);
+		sort_big(stack_a, stack_b, 35);
 }
 
 char  *join_argv(int argc, char **argv)
@@ -58,10 +40,10 @@ char  *join_argv(int argc, char **argv)
 	char  *joined_argv;
 
 	i = 1;
-	j = 0;
 	joined_argv = NULL;
 	while (i < argc)
 	{
+		j = 0;
 		while (argv[i][j] == ' ')
 			j++;
 		if (argv[i][j] == '\0')
@@ -69,7 +51,6 @@ char  *join_argv(int argc, char **argv)
 		joined_argv = ft_strjoin(joined_argv, argv[i]);
 		joined_argv = ft_strjoin(joined_argv, " ");
 		i++;
-		j = 0;
 	}
 	return (joined_argv);
 }
@@ -84,18 +65,14 @@ int main(int argc, char *argv[])
 	numbers = NULL;
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc == 1)
+		exit(0);
 	joined_argv = join_argv(argc, argv);
 	numbers = ft_split(joined_argv, ' ');
-	free(joined_argv);
 	init(numbers, &stack_a);
-
-	// print_list(stack_a);
-	
 	start_sort(&stack_a, &stack_b);
-
-	// print_list(stack_a);
 	if (numbers)
-			free_dptr(numbers);
+		free_dptr(numbers);
 	free_stack(stack_a);
 	return (0);
 }
