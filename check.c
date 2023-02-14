@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/12 22:34:06 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/14 05:14:41 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int check_numbers(char **numbers)
     j = 0;
     if (numbers[i][j] == '-' || numbers[i][j] == '+')
       j++;
+    if (!ft_isdigit(numbers[i][j]))
+      return (0);
     while (numbers[i][j])
     {
       if (!ft_isdigit(numbers[i][j]))
@@ -103,6 +105,8 @@ int check_is_sorted(t_node *stack)
   t_node *tmp;
 
   tmp = stack;
+  if (!tmp)
+    return (0);
   while (tmp->next)
   {
     if (tmp->value > tmp->next->value)

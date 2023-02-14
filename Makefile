@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 18:04:23 by mahansal          #+#    #+#              #
-#    Updated: 2023/02/13 22:41:05 by mahansal         ###   ########.fr        #
+#    Updated: 2023/02/14 04:34:55 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -fsanitize=address
 
 bonus: $(BOBJS)
-	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME)
+	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME) -fsanitize=address
 	
 clean:
 	rm -f $(OBJS)

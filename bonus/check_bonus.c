@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:59:02 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/13 22:31:17 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/14 04:35:50 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int check_is_sorted(t_node *stack)
   t_node *tmp;
 
   tmp = stack;
+  if (!tmp)
+    return (0);
   while (tmp->next)
   {
     if (tmp->value > tmp->next->value)
