@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:29:38 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/15 02:09:58 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/16 07:26:34 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,11 @@ void	sort_big(t_node **stack_a, t_node **stack_b, int division)
 {
 	int			size;
 	int			*tab;
-	int			i;
-	t_node		*tmp_a;
 
-	i = 0;
-	tmp_a = *stack_a;
 	size = ft_lstsize(*stack_a);
 	tab = sort_tab(*stack_a, size);
 	push_a_b(stack_a, stack_b, tab, division);
 	while (*stack_b)
 		push_back(stack_a, stack_b, ft_lstsize(*stack_b));
+	free(tab);
 }
