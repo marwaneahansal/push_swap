@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/15 07:49:45 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/16 02:11:37 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ int	main(int argc, char *argv[])
 	free(joined_argv);
 	init(numbers, &stack_a);
 	start_sort(&stack_a, &stack_b);
-	if (numbers)
-		free_dptr(numbers);
+	free_dptr(numbers);
 	free_stack(stack_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:00:34 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/15 02:26:27 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/16 02:11:12 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,13 @@ void	init(char **numbers, t_node **stack_a)
 	if (!check_numbers(numbers)
 		|| !check_maxmin_numbers(numbers))
 	{
-		if (numbers)
-			free_dptr(numbers);
+		free_dptr(numbers);
 		exit_error();
 	}
 	*stack_a = fill_stack(numbers);
 	if (!check_duplicates(*stack_a))
 	{
-		if (numbers)
-			free_dptr(numbers);
+		free_dptr(numbers);
 		exit_error();
 	}
 }

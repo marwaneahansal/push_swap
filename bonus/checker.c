@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 20:41:37 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/16 02:04:29 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/16 02:10:59 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ int	main(int argc, char *argv[])
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	if (numbers)
-		free_dptr(numbers);
+	free_dptr(numbers);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

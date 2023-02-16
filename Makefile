@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 18:04:23 by mahansal          #+#    #+#              #
-#    Updated: 2023/02/15 07:41:18 by mahansal         ###   ########.fr        #
+#    Updated: 2023/02/16 02:12:50 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,10 @@ CFLAGS 	= -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -fsanitize=address
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 bonus: $(BOBJS)
-	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME) -fsanitize=address
+	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME)
 	
 clean:
 	rm -f $(OBJS)

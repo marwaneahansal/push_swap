@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:02:27 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/15 02:10:18 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/16 02:09:56 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,15 @@ void	free_dptr(char **ptr)
 	int	i;
 
 	i = 0;
-	while (ptr[i])
+	if (ptr && *ptr)
 	{
-		free(ptr[i]);
-		i++;
+		while (ptr[i])
+		{
+			free(ptr[i]);
+			i++;
+		}
+		free(ptr);
 	}
-	free(ptr);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)
