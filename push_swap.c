@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:04:36 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/16 02:11:37 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/16 22:41:24 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	start_sort(t_node **stack_a, t_node **stack_b)
 		sort_four(stack_a, stack_b);
 	else if (size == 5)
 		sort_five(stack_a, stack_b);
-	else if (size <= 20)
-		sort_big(stack_a, stack_b, 3);
 	else if (size <= 100)
 		sort_big(stack_a, stack_b, 15);
 	else
