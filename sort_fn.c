@@ -6,88 +6,88 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:29:38 by mahansal          #+#    #+#             */
-/*   Updated: 2023/02/13 22:44:46 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/02/15 02:09:58 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void  sort_two(t_node **stack_a)
+void	sort_two(t_node **stack_a)
 {
-  if ((*stack_a)->value > (*stack_a)->next->value)
-    sa(stack_a, 1);
+	if ((*stack_a)->value > (*stack_a)->next->value)
+		sa(stack_a, 1);
 }
 
-void  sort_three(t_node **stack_a)
+void	sort_three(t_node **stack_a)
 {
-  int   max_index;
+	int	max_index;
 
-  max_index = get_max_index(*stack_a);
-  if (max_index == 0)
-    ra(stack_a, 1);
-  else if (max_index == 1)
-    rra(stack_a, 1);
-  if ((*stack_a)->value > (*stack_a)->next->value)
-    sa(stack_a, 1);
+	max_index = get_max_index(*stack_a);
+	if (max_index == 0)
+		ra(stack_a, 1);
+	else if (max_index == 1)
+		rra(stack_a, 1);
+	if ((*stack_a)->value > (*stack_a)->next->value)
+		sa(stack_a, 1);
 }
 
-void  sort_four(t_node **stack_a, t_node **stack_b)
+void	sort_four(t_node **stack_a, t_node **stack_b)
 {
-  int   min_index;
+	int	min_index;
 
-  min_index = get_min_index(*stack_a);
-  if (min_index == 1)
-    sa(stack_a, 1);
-  else if (min_index == 2)
-  {
-    rra(stack_a, 1);
-    rra(stack_a, 1);
-  }
-  else if (min_index == 3)
-    rra(stack_a, 1);
-  pb(stack_a, stack_b, 1);
-  if (!check_is_sorted(*stack_a))
-    sort_three(stack_a);
-  pa(stack_a, stack_b, 1);
+	min_index = get_min_index(*stack_a);
+	if (min_index == 1)
+		sa(stack_a, 1);
+	else if (min_index == 2)
+	{
+		rra(stack_a, 1);
+		rra(stack_a, 1);
+	}
+	else if (min_index == 3)
+		rra(stack_a, 1);
+	pb(stack_a, stack_b, 1);
+	if (!check_is_sorted(*stack_a))
+		sort_three(stack_a);
+	pa(stack_a, stack_b, 1);
 }
 
-void  sort_five(t_node **stack_a, t_node **stack_b)
+void	sort_five(t_node **stack_a, t_node **stack_b)
 {
-  int  min_index;
+	int	min_index;
 
-  min_index = get_min_index(*stack_a);
-  if (min_index == 1)
-    sa(stack_a, 1);
-  else if (min_index == 2)
-  {
-    ra(stack_a, 1);
-    ra(stack_a, 1);
-  }
-  else if (min_index == 3)
-  {
-    rra(stack_a, 1);
-    rra(stack_a, 1);
-  }
-  else if (min_index == 4)
-    rra(stack_a, 1);
-  pb(stack_a, stack_b, 1);
-  if (!check_is_sorted(*stack_a))
-    sort_four(stack_a, stack_b);
-  pa(stack_a, stack_b, 1);
+	min_index = get_min_index(*stack_a);
+	if (min_index == 1)
+		sa(stack_a, 1);
+	else if (min_index == 2)
+	{
+		ra(stack_a, 1);
+		ra(stack_a, 1);
+	}
+	else if (min_index == 3)
+	{
+		rra(stack_a, 1);
+		rra(stack_a, 1);
+	}
+	else if (min_index == 4)
+		rra(stack_a, 1);
+	pb(stack_a, stack_b, 1);
+	if (!check_is_sorted(*stack_a))
+		sort_four(stack_a, stack_b);
+	pa(stack_a, stack_b, 1);
 }
 
-void  sort_big(t_node **stack_a, t_node **stack_b, int division)
+void	sort_big(t_node **stack_a, t_node **stack_b, int division)
 {
-  int size;
-  int *tab;
-  int i;
-  t_node  *tmp_a;
+	int			size;
+	int			*tab;
+	int			i;
+	t_node		*tmp_a;
 
-  i = 0;
-  tmp_a = *stack_a;
-  size = ft_lstsize(*stack_a);
-  tab = sort_tab(*stack_a, size);
-  push_a_b(stack_a, stack_b, tab, division);
-  while (*stack_b)
-    push_back(stack_a, stack_b, ft_lstsize(*stack_b));
+	i = 0;
+	tmp_a = *stack_a;
+	size = ft_lstsize(*stack_a);
+	tab = sort_tab(*stack_a, size);
+	push_a_b(stack_a, stack_b, tab, division);
+	while (*stack_b)
+		push_back(stack_a, stack_b, ft_lstsize(*stack_b));
 }
